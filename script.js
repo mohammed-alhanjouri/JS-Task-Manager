@@ -12,10 +12,7 @@ const loadTasks = () => {
 
 const run = () => {
     loadTasks();
-    let codeRunning = true;
-    while (codeRunning) {
-        console.log(
-        `
+    console.log(`
 Task Manager Menu
 
 1. Add Task 
@@ -25,42 +22,46 @@ Task Manager Menu
 5. Delete Task
 6. Search 
 7. Exit`); 
-
         const p = prompt("Enter your choice: ");
         switch (p) {
             case '1':{
                 addTask();
+                run();
                 break;
             }
 
             case '2':{
                 displayTasks();
+                run();
                 break;
             }
 
             case '3':{
                 toggleTaskCompletion();
+                run();
                 break;
             }
                 
             case '4':{
                 updateTask();
+                run();
                 break;
             }
                 
             case '5':{
                 deleteTask();
+                run();
                 break;
             }
             
             case '6':{
                 searchTasks();
+                run();
                 break;
             }
                 
             case '7':{
                 console.log("Exiting Task Manager... ");
-                codeRunning = false;
                 break;
             }
 
@@ -68,7 +69,6 @@ Task Manager Menu
                 console.log("Invalid Choice! Please choose a number between 1 - 7");
                 break;
         }
-    }
 };
 
 
