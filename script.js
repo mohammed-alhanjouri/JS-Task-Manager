@@ -62,8 +62,12 @@ let tasks = [];
 
 const addTask = () => {
     const taskTitle = prompt("Enter Task Title:");
+    const isDuplicate = tasks.some(dt => dt.taskTitle.toLowerCase() === taskTitle.toLowerCase());
     if (taskTitle.trim() === "") {
         console.log("You have to write Task Title!");
+    }
+    else if (isDuplicate) {
+        console.log("This Task Title already exists!");
     }
     else {
         const taskID = tasks.length + 1;
