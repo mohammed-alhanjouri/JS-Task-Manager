@@ -1,4 +1,17 @@
+let tasks = [];
+
+// Save tasks to localStorage
+const saveTasks = () => localStorage.setItem('tasks', JSON.stringify(tasks));
+
+// Load tasks from localStorage
+const loadTasks = () => {
+    const savedTasks = localStorage.getItem('tasks');
+    // check if there are saved tasks in localStorage, parse them. Otherwise, initialize an empty array.
+    tasks = savedTasks ? JSON.parse(savedTasks) : [];
+};
+
 const run = () => {
+    loadTasks();
     let codeRunning = true;
     while (codeRunning) {
         console.log(
@@ -58,7 +71,6 @@ Task Manager Menu
     }
 };
 
-let tasks = [];
 
 const addTask = () => {
     const taskTitle = prompt("Enter Task Title:");
@@ -74,6 +86,7 @@ const addTask = () => {
         const newTask = { taskID , taskTitle , isCompleted: false};
         tasks.push(newTask);
         console.log(`Task added: ${taskID}. ${taskTitle}`);
+        saveTasks();
     }
 };
 
@@ -94,8 +107,8 @@ const toggleTaskCompletion =() => {
     const taskIDToggle = tasks.find(t => t.taskID === IDToggle);
     if (taskIDToggle) {
         taskIDToggle.isCompleted = !taskIDToggle.isCompleted;
-        // taskIDToggle.isCompleted = taskIDToggle.isCompleted ? false : true;
         console.log(`Task ${taskIDToggle.taskID}. "${taskIDToggle.taskTitle}" is now marked as ${taskIDToggle.isCompleted ? 'Completed' : 'Not Completed'}.`);
+        saveTasks();
     }
     else {
         console.log("Sorry, Task not found! Please enter a valid Task ID.");
@@ -109,6 +122,7 @@ const updateTask =() => {
         const updatedTaskTitle = prompt("Enter a new Task Title: ");
         taskIDUpdate.taskTitle = updatedTaskTitle;
         console.log(`Task ${taskIDUpdate.taskID} updated to: "${taskIDUpdate.taskTitle}".`);
+        saveTasks();
     }
     else {
         console.log("Sorry, Task not found! Please enter a valid Task ID.");
@@ -121,6 +135,7 @@ const deleteTask =() => {
     if (taskIndexDelete !== -1) {
         const deletedTask = tasks.splice(taskIndexDelete, 1)[0];
         console.log(`Task ${deletedTask.taskID}. "${deletedTask.taskTitle}" Deleted.`);
+        saveTasks();
     }
     else {
         console.log("Sorry, Task not found! Please enter a valid Task ID.");
