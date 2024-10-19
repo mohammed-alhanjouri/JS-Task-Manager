@@ -145,7 +145,10 @@ const deleteTask =() => {
 const searchTasks =() => {
     const searchKeyword = prompt("Enter a keyword to search tasks by name: ");
     const filteredTasks = tasks.filter(f => f.taskTitle.toLowerCase().includes(searchKeyword.toLowerCase()));
-    if (filteredTasks.length > 0) {
+    if (searchKeyword.trim() === "") {
+        console.log("Search keyword cannot be empty!");
+    }
+    else if (filteredTasks.length > 0) {
         console.log("Search Results:");
         filteredTasks.forEach(ft => {
             console.log(`${ft.taskID}. ${ft.taskTitle} [${ft.isCompleted ? 'Completed' : 'Not Completed'}]`);
