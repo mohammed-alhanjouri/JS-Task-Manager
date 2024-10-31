@@ -2,16 +2,16 @@
 
 #### JS Task Manager is a lightweight command-line application built with JavaScript, designed to help users manage tasks effectively. It supports full CRUD (Create, Read, Update, Delete) operations, enabling users to:
 
-### Add new tasks
+### - Add new tasks
 
-### View all tasks with their completion status
+### - View all tasks with their completion status
 
-### Toggle task completion status
+### - Toggle task completion status
 
-### Edit existing tasks
+### - Edit existing tasks
 
-### Delete tasks
+### - Delete tasks
 
-### Search tasks by keyword
+### - Search tasks by keyword
 
-### Keep data persistent across sessions using localStorage
+### - Keep data persistent across sessions using localStorage
