@@ -1,3 +1,17 @@
-Simple JS command-line-based "Task Manager" (CRUD Application)
+## Simple JS Command-Line-Based Task Manager (CRUD Application)
 
-This is a simple command-line-based Task Manager that allows users to manage their tasks, supporting CRUD operations
+#### JS Task Manager is a lightweight command-line application built with JavaScript, designed to help users manage tasks effectively. It supports full CRUD (Create, Read, Update, Delete) operations, enabling users to:
+
+### Add new tasks
+
+### View all tasks with their completion status
+
+### Toggle task completion status
+
+### Edit existing tasks
+
+### Delete tasks
+
+### Search tasks by keyword
+
+### Keep data persistent across sessions using localStorage
